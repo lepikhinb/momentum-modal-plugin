@@ -1,7 +1,6 @@
 import { usePage } from "@inertiajs/inertia-vue3"
 import { Inertia } from "@inertiajs/inertia"
-import { computed, ref, shallowRef } from "@vue/reactivity"
-import { defineAsyncComponent, h, nextTick, watch } from "vue"
+import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
 
@@ -101,7 +100,6 @@ const redirect = () => {
 
   return Inertia.visit(redirectURL, {
     preserveScroll: true,
-    preserveState: true,
   })
 }
 

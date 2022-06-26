@@ -1,5 +1,5 @@
-import { defineConfig } from "vite";
-const path = require("path");
+import { defineConfig } from "vite"
+const path = require("path")
 
 export default defineConfig({
   build: {
@@ -9,14 +9,7 @@ export default defineConfig({
       fileName: `momentum-modal`,
     },
     rollupOptions: {
-      external: ["vue", "@inertiajs/inertia-vue3", "axios"],
-      output: {
-        globals: {
-          vue: "Vue",
-          "@inertiajs/inertia-vue3": "Inertia",
-          axios: "axios",
-        },
-      },
+      external: ["vue", "@inertiajs/inertia", "@inertiajs/inertia-vue3", "axios"],
     },
   },
-});
+})
