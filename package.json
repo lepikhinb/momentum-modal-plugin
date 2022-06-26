@@ -1,0 +1,30 @@
+{
+  "name": "momentum-modal",
+  "private": true,
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "preview": "vite preview"
+  },
+  "main": "./dist/momentum-modal.umd.js",
+  "module": "./dist/momentum-modal.es.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/momentum-modal.es.js",
+      "require": "./dist/momentum-modal.umd.js"
+    }
+  },
+  "dependencies": {
+    "@inertiajs/inertia-vue3": "^0.6.0",
+    "axios": "^0.27.2",
+    "vue": "^3.2.25"
+  },
+  "devDependencies": {
+    "@types/node": "^18.0.0",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.9",
+    "vue-tsc": "^0.38.1"
+  }
+}
