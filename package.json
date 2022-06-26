@@ -5,8 +5,19 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier": "prettier src/ --write"
   },
+  "description": "Momentum Modal",
+  "author": "Boris Lepikhin<https://twitter.com/lepikhinb>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lepikhinb/momentum-modal-plugin.git"
+  },
+  "homepage": "https://github.com/lepikhinb/momentum-modal#readme",
+  "files": [
+    "dist"
+  ],
   "main": "./dist/momentum-modal.umd.js",
   "module": "./dist/momentum-modal.es.js",
   "types": "./dist/types/index.d.ts",
