@@ -1,11 +1,11 @@
 {
   "name": "momentum-modal",
-  "version": "0.0.3",
+  "version": "0.0.5",
   "scripts": {
     "dev": "vite",
-    "build": "vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "preview": "vite preview",
-    "prettier": "prettier src/ --write"
+    "build": "npm run prettier && vite build && vue-tsc --declaration --emitDeclarationOnly",
+    "prettier": "prettier src/ --write",
+    "publish": "npm run build && npm publish --access public"
   },
   "description": "Momentum Modal",
   "author": "Boris Lepikhin<https://twitter.com/lepikhinb>",
