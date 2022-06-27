@@ -2,7 +2,7 @@ import { App } from "vue"
 import resolver from "./resolver"
 
 export type ModalPluginOptions = {
-  resolve: CallableFunction
+  resolve: (name: string) => any
 }
 
 export const plugin = {
