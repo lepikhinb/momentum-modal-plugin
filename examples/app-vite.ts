@@ -16,7 +16,9 @@ createInertiaApp({
   resolve: (name) => resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
   setup({ el, app, props, plugin }) {
     createApp({ render: () => h(app, props) })
-      .use(modal, (name: string) => resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")))
+      .use(modal, {
+        resolve: (name: string) => resolvePageComponent(name, import.meta.glob("./Pages/**/*.vue")),
+      })
       .use(plugin)
       .mount(el)
   },

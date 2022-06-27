@@ -7,7 +7,9 @@ createInertiaApp({
   title: (title) => (title ? `${title} - Ping CRM` : "Ping CRM"),
   setup({ el, App, props, plugin }) {
     createApp({ render: () => h(App, props) })
-      .use(modal, (name) => import(`./Pages/${name}`))
+      .use(modal, {
+        resolve: (name) => import(`./Pages/${name}`),
+      })
       .use(plugin)
       .mount(el)
   },
