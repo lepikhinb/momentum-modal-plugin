@@ -1,12 +1,19 @@
 {
   "name": "momentum-modal",
-  "version": "0.0.6",
+  "version": "0.1.0",
   "scripts": {
     "dev": "vite",
     "build": "npm run prettier && vite build && vue-tsc --declaration --emitDeclarationOnly",
     "prettier": "prettier src/ --write"
   },
-  "description": "Momentum Modal",
+  "description": "A Vue 3 plugin that lets you implement backend-driven modal dialogs for Inertia apps.",
+  "keywords": [
+    "laravel",
+    "inertia",
+    "vue",
+    "modal",
+    "dialog"
+  ],
   "author": "Boris Lepikhin<https://twitter.com/lepikhinb>",
   "repository": {
     "type": "git",
