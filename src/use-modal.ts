@@ -38,17 +38,25 @@ const setHeaders = (values: Record<string, string | null>) => {
   )
 }
 
-const resetHeaders = () =>
-  setHeaders({
-    "X-Inertia-Modal-Key": null,
-    "X-Inertia-Modal-Redirect": null,
-  })
+const resetHeaders = () => {
+  const headers = ["X-Inertia-Modal-Key", "X-Inertia-Modal-Redirect"]
 
-const updateHeaders = () =>
+  headers.forEach(([key, value]) =>
+    ["get", "post", "put", "patch", "delete"].forEach((method) => {
+      /** @ts-ignore */
+      delete axios.defaults.headers[method][key]
+    })
+  )
+}
+
+const updateHeaders = () => {
   setHeaders({
     "X-Inertia-Modal-Key": key.value,
     "X-Inertia-Modal-Redirect": modal.value?.redirectURL,
   })
+
+  axios.defaults.headers.get["X-Inertia-Modal-Redirect"] = modal.value?.redirectURL ?? ""
+}
 
 const close = (shouldRedirect: boolean = false) => {
   show.value = false
