@@ -96,6 +96,13 @@ const resolveComponent = () => {
 
 resolveComponent()
 
+window.addEventListener("popstate", (event: PopStateEvent) => {
+  if (key.value) {
+    resolveComponent()
+    updateHeaders()
+  }
+})
+
 watch(() => modal, resolveComponent, { deep: true })
 watch(() => key.value, updateHeaders)
 
