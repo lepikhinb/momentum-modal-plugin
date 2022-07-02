@@ -103,8 +103,13 @@ window.addEventListener("popstate", (event: PopStateEvent) => {
   }
 })
 
-watch(() => modal, resolveComponent, { deep: true })
-watch(() => key.value, updateHeaders)
+watch(
+  () => key.value,
+  () => {
+    resolveComponent()
+    updateHeaders()
+  }
+)
 
 const redirect = () => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL
