@@ -91,14 +91,15 @@ const resolveComponent = () => {
 
 resolveComponent()
 
-window.addEventListener("popstate", (event: PopStateEvent) => {
-  nonce.value = null
-})
+if (typeof window !== "undefined") {
+  window.addEventListener("popstate", (event: PopStateEvent) => {
+    nonce.value = null
+  })
+}
 
 watch(
   () => key.value,
   () => {
-    console.log("on watch")
     resolveComponent()
     updateHeaders()
   }
