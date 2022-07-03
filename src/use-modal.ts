@@ -98,12 +98,15 @@ if (typeof window !== "undefined") {
 }
 
 watch(
-  () => key.value,
+  () => modal.value,
   () => {
-    resolveComponent()
-    updateHeaders()
-  }
+    if (modal.value?.nonce !== nonce.value) {
+      resolveComponent()
+    }
+  },
+  { deep: true }
 )
+watch(() => key.value, updateHeaders)
 
 const redirect = () => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL

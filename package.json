@@ -1,6 +1,6 @@
 {
   "name": "momentum-modal",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "scripts": {
     "dev": "vite",
     "build": "npm run prettier && vite build && vue-tsc --declaration --emitDeclarationOnly",
