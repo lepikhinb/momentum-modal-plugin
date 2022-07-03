@@ -16,17 +16,12 @@ interface Modal {
 const response = usePage<{ modal: Modal }>().props
 const modal = computed(() => response.value?.modal)
 const props = computed(() => modal.value?.props)
+const key = computed(() => modal.value?.key)
 
 const componentName = ref()
 const component = shallowRef()
 const show = ref(false)
-const key = computed(() => modal.value?.key)
 const vnode = ref()
-
-// Inertia preserves props on the Page object
-// even if they are not present on the current response
-// when `only` persists on the request
-// so we have the `nonce`, which should be unique for every request
 const nonce = ref()
 
 const setHeaders = (values: Record<string, string | null>) => {
@@ -97,15 +92,13 @@ const resolveComponent = () => {
 resolveComponent()
 
 window.addEventListener("popstate", (event: PopStateEvent) => {
-  if (key.value) {
-    resolveComponent()
-    updateHeaders()
-  }
+  nonce.value = null
 })
 
 watch(
   () => key.value,
   () => {
+    console.log("on watch")
     resolveComponent()
     updateHeaders()
   }
