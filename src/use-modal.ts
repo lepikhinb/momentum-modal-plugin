@@ -111,6 +111,8 @@ watch(() => key.value, updateHeaders)
 const redirect = () => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL
 
+  vnode.value = false
+
   if (!redirectURL) {
     return
   }
