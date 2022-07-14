@@ -53,14 +53,10 @@ const updateHeaders = () => {
   axios.defaults.headers.get["X-Inertia-Modal-Redirect"] = modal.value?.redirectURL ?? ""
 }
 
-const close = (shouldRedirect: boolean = false) => {
+const close = () => {
   show.value = false
 
   resetHeaders()
-
-  if (shouldRedirect) {
-    redirect()
-  }
 }
 
 const resolveComponent = () => {
