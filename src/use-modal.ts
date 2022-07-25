@@ -115,6 +115,7 @@ const redirect = () => {
 
   return Inertia.visit(redirectURL, {
     preserveScroll: true,
+    preserveState: true,
   })
 }
 
