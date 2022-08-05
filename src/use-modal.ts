@@ -3,6 +3,7 @@ import { Inertia } from "@inertiajs/inertia"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
+import { dotGet, dotSet } from "./dotter"
 
 interface Modal {
   component: string
@@ -92,6 +93,20 @@ if (typeof window !== "undefined") {
     nonce.value = null
   })
 }
+
+// Adds support for inertia deep partial updates
+axios.interceptors.response.use((response) => {
+  if (response.config.headers["X-Inertia-Partial-Data"]) {
+    const only = response.config.headers["X-Inertia-Partial-Data"].split(",")
+
+    const props = JSON.parse(JSON.stringify(usePage().props.value)) // Clone old props
+    only.forEach((key: string) => {
+      dotSet(props, key, dotGet(key, response.data.props))
+    })
+    response.data.props = props
+  }
+  return response
+})
 
 watch(
   () => modal.value,

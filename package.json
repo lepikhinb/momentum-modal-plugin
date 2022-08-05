@@ -37,6 +37,7 @@
     "vue": "^3.x"
   },
   "devDependencies": {
+    "prettier": "^2.7.1",
     "@types/node": "^18.0.0",
     "axios": "^0.21.1",
     "typescript": "^4.5.4",
