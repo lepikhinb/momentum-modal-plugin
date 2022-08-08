@@ -34,7 +34,8 @@
   },
   "peerDependencies": {
     "@inertiajs/inertia-vue3": "^0.x",
-    "vue": "^3.x"
+    "vue": "^3.x",
+    "deepmerge": "^4.2.2"
   },
   "devDependencies": {
     "prettier": "^2.7.1",
