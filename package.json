@@ -23,6 +23,7 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "main": "./dist/momentum-modal.umd.js",
   "module": "./dist/momentum-modal.es.js",
   "types": "./dist/types/index.d.ts",
