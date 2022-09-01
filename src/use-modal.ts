@@ -125,5 +125,6 @@ export const useModal = () => {
     vnode,
     close,
     redirect,
+    props,
   }
 }
