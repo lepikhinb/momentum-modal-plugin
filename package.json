@@ -1,6 +1,6 @@
 {
   "name": "momentum-modal",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "scripts": {
     "dev": "vite",
     "build": "npm run prettier && vite build && vue-tsc --declaration --emitDeclarationOnly",
@@ -24,13 +24,13 @@
     "dist"
   ],
   "type": "module",
-  "main": "./dist/momentum-modal.umd.js",
+  "main": "./dist/momentum-modal.umd.cjs",
   "module": "./dist/momentum-modal.es.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/momentum-modal.es.js",
-      "require": "./dist/momentum-modal.umd.js"
+      "require": "./dist/momentum-modal.umd.cjs"
     }
   },
   "peerDependencies": {
