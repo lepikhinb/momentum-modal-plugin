@@ -1,5 +1,5 @@
 import { usePage } from "@inertiajs/vue3"
-import { router } from '@inertiajs/vue3'
+import { router } from "@inertiajs/vue3"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
