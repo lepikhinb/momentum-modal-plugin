@@ -34,7 +34,7 @@
     }
   },
   "peerDependencies": {
-    "@inertiajs/vue3": "^1.0.0-beta.2",
+    "@inertiajs/vue3": "1.0.0-beta.",
     "vue": "^3.x"
   },
   "devDependencies": {
