@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { useForm } from "@inertiajs/inertia-vue3"
+import { useForm } from "@inertiajs/vue3"
 import Modal from "./Modal.vue"
 
 const props = defineProps<{ contact: Record<string, any>; organizations: any[] }>()
