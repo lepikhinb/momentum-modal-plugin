@@ -2,6 +2,7 @@ import { usePage } from "@inertiajs/inertia-vue3"
 import { Inertia } from "@inertiajs/inertia"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
+import deepmerge from "deepmerge" // This is also a dependency of inertia
 import resolver from "./resolver"
 
 interface Modal {
@@ -92,6 +93,16 @@ if (typeof window !== "undefined") {
     nonce.value = null
   })
 }
+
+// Adds support for inertia deep partial updates
+axios.interceptors.response.use((response) => {
+  if (response.config.headers["X-Inertia-Partial-Data"]) {
+    const overwriteMerge = (_destinationArray: Array<unknown>, sourceArray: Array<unknown>) => sourceArray;
+
+    response.data.props = deepmerge(JSON.parse(JSON.stringify(usePage().props.value)), response.data.props, { arrayMerge: overwriteMerge });
+  }
+  return response
+})
 
 watch(
   () => modal.value,
