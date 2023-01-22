@@ -17,11 +17,11 @@ Make Inertia-powered frontend a breeze to build and maintain with my upcoming bo
 Momentum is a set of packages designed to bring back the feeling of working on a single codebase to Inertia-powered apps.
 
 - [Modal](https://github.com/lepikhinb/momentum-modal) — Build dynamic modal dialogs for Inertia apps
+- [Preflight](https://github.com/lepikhinb/momentum-preflight) — Realtime backend-driven validation for Inertia apps
 - [Paginator](https://github.com/lepikhinb/momentum-paginator) — Headless wrapper around Laravel Pagination
-- State — Laravel package to manage the frontend state of Inertia apps *(coming soon)*
-- Router — Frontend plugin to use Laravel routes with Inertia *(coming soon)*
-- Permissions — Frontend plugin to use your Laravel permission with Inertia *(coming soon)*
-- Locale — Use your Laravel translation files with Inertia *(coming soon)*
+- [Trail](https://github.com/lepikhinb/momentum-trail) — Frontend package to use Laravel routes with Inertia
+- [Lock](https://github.com/lepikhinb/momentum-lock) — Frontend package to use Laravel permissions with Inertia
+- [Vite Plugin Watch](https://github.com/lepikhinb/vite-plugin-watch) — Vite plugin to run shell commands on file changes
 
 ## Credits
 
