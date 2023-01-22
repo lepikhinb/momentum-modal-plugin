@@ -9,7 +9,7 @@ export default defineConfig({
       fileName: `momentum-modal`,
     },
     rollupOptions: {
-      external: ["vue", "@inertiajs/inertia", "@inertiajs/inertia-vue3", "axios"],
+      external: ["vue", "@inertiajs/vue3", "axios"],
     },
   },
 })

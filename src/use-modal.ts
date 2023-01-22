@@ -1,20 +1,10 @@
-import { usePage } from "@inertiajs/inertia-vue3"
-import { Inertia } from "@inertiajs/inertia"
+import { usePage } from "@inertiajs/vue3"
+import { router } from "@inertiajs/vue3"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
 
-interface Modal {
-  component: string
-  baseURL: string
-  redirectURL: string | null
-  props: Record<string, any>
-  key: string
-  nonce: string
-}
-
-const response = usePage<{ modal: Modal }>().props
-const modal = computed(() => response.value?.modal)
+const modal = computed(() => usePage().props?.modal)
 const props = computed(() => modal.value?.props)
 const key = computed(() => modal.value?.key)
 
@@ -94,7 +84,7 @@ if (typeof window !== "undefined") {
 }
 
 watch(
-  () => modal.value,
+  modal,
   () => {
     if (modal.value?.nonce !== nonce.value) {
       resolveComponent()
@@ -102,7 +92,8 @@ watch(
   },
   { deep: true }
 )
-watch(() => key.value, updateHeaders)
+
+watch(key, updateHeaders)
 
 const redirect = () => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL
@@ -113,7 +104,7 @@ const redirect = () => {
     return
   }
 
-  return Inertia.visit(redirectURL, {
+  return router.visit(redirectURL, {
     preserveScroll: true,
     preserveState: true,
   })
