@@ -1,10 +1,12 @@
 {
   "name": "momentum-modal",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "scripts": {
     "dev": "vite",
     "build": "npm run prettier && vite build && vue-tsc --declaration --emitDeclarationOnly",
-    "prettier": "prettier src/ --write"
+    "prettier": "prettier src/ --write",
+    "patch": "npm version patch --no-git-tag-version",
+    "minor": "npm version minor --no-git-tag-version"
   },
   "description": "A Vue 3 plugin that lets you implement backend-driven modal dialogs for Inertia apps.",
   "keywords": [
@@ -35,8 +37,8 @@
   },
   "peerDependencies": {
     "@inertiajs/vue3": "^1.0.0",
-    "vue": "^3.x",
-    "axios": "^1.2.0"
+    "axios": "^1.2.0",
+    "vue": "^3.x"
   },
   "devDependencies": {
     "@types/node": "^18.0.0",
