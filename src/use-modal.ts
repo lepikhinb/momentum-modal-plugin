@@ -3,6 +3,7 @@ import { router } from "@inertiajs/vue3"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
+import { GlobalEventCallback, Visit } from "@inertiajs/core"
 
 const modal = computed(() => usePage()?.props?.modal)
 const props = computed(() => modal.value?.props)
@@ -95,7 +96,20 @@ watch(
 
 watch(key, updateHeaders)
 
-const redirect = () => {
+export type RedirectOptions = Partial<
+  Visit & {
+    onCancelToken: ({ cancel }: { cancel: VoidFunction }) => void
+    onBefore: GlobalEventCallback<"before">
+    onStart: GlobalEventCallback<"start">
+    onProgress: GlobalEventCallback<"progress">
+    onFinish: GlobalEventCallback<"finish">
+    onCancel: GlobalEventCallback<"cancel">
+    onSuccess: GlobalEventCallback<"success">
+    onError: GlobalEventCallback<"error">
+  }
+>
+
+const redirect = (redirectOptions?: RedirectOptions) => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL
 
   vnode.value = false
@@ -106,16 +120,17 @@ const redirect = () => {
 
   return router.visit(redirectURL, {
     preserveScroll: true,
-    preserveState: true,
+    preserveState: false,
+    ...redirectOptions,
   })
 }
 
-export const useModal = () => {
+export const useModal = (redirectOptions?: RedirectOptions) => {
   return {
     show,
     vnode,
     close,
-    redirect,
+    redirect: () => redirect(redirectOptions),
     props,
   }
 }
