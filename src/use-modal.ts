@@ -1,8 +1,8 @@
-import { usePage } from "@inertiajs/vue3"
-import { router } from "@inertiajs/vue3"
+import { usePage, router } from "@inertiajs/vue3"
 import { defineAsyncComponent, h, nextTick, watch, computed, ref, shallowRef } from "vue"
 import axios from "axios"
 import resolver from "./resolver"
+import { VisitOptions } from "@inertiajs/core";
 
 const page = usePage()
 const modal = computed(() => page?.props?.modal)
@@ -96,7 +96,7 @@ watch(
 
 watch(key, updateHeaders)
 
-const redirect = () => {
+const redirect = (options: VisitOptions = {}) => {
   var redirectURL = modal.value?.redirectURL ?? modal.value?.baseURL
 
   vnode.value = false
@@ -108,6 +108,7 @@ const redirect = () => {
   return router.visit(redirectURL, {
     preserveScroll: true,
     preserveState: true,
+    ...options
   })
 }
 
