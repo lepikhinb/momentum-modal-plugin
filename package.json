@@ -31,7 +31,10 @@
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/momentum-modal.js",
+      "import": {
+        "types": "./dist/types/index.d.ts",
+        "default": "./dist/momentum-modal.js"
+      },
       "require": "./dist/momentum-modal.umd.cjs"
     }
   },
